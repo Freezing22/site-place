@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Илья | IT Specialist — 6+ лет опыта</title>
+  <title>IT Support — 6+ лет опыта</title>
   <meta name="description" content="IT-специалист с 6+ годами опыта. Настройка ПК, сетевого оборудования, установка Windows/Linux, ремонт, скрипты. Работаю удалённо и с выездом.">
   <meta name="keywords" content="IT специалист, настройка ПК, ремонт компьютеров, установка Windows, Linux, настройка роутера, помощь с компьютером, выезд на дом">
   <meta name="author" content="Илья">
@@ -326,23 +326,7 @@
     .process-step p{font-size:12.5px;color:var(--text-dim);line-height:1.6}
 
     /* Reviews */
-    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:44px}
-    .review-card{
-      background:var(--card);border:1px solid var(--border);
-      border-radius:var(--radius);padding:28px;
-      transition:.4s;
-    }
-    .review-card:hover{border-color:rgba(0,240,255,.12);transform:translateY(-3px)}
-    .review-card .stars{color:var(--yellow);font-size:14px;margin-bottom:10px;letter-spacing:2px}
-    .review-card blockquote{font-size:14px;color:var(--text-dim);line-height:1.7;margin-bottom:14px;font-style:italic}
-    .review-card .author{display:flex;align-items:center;gap:10px}
-    .review-card .author .avatar{
-      width:36px;height:36px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      font-size:14px;font-weight:700;color:#fff;flex-shrink:0;
-    }
-    .review-card .author .name{font-size:13px;font-weight:600}
-    .review-card .author .role{font-size:11.5px;color:var(--text-muted)}
+
 
     /* FAQ */
     .faq-list{max-width:760px;margin:44px auto 0}
@@ -489,7 +473,7 @@
       .about-grid{grid-template-columns:1fr;gap:28px}
       .contact-grid{grid-template-columns:1fr}
       .form-row{grid-template-columns:1fr}
-      .services-grid,.pricing-grid,.reviews-grid{grid-template-columns:1fr}
+      .services-grid,.pricing-grid{grid-template-columns:1fr}
       section{padding:60px 0;overflow:hidden}
       .hero h1{font-size:clamp(32px,10vw,48px)}
       .reveal-left,.reveal-right{transform:translateY(30px)}
@@ -510,7 +494,7 @@
       <li><a href="#advantages">Почему я</a></li>
       <li><a href="#about">Обо мне</a></li>
       <li><a href="#pricing">Цены</a></li>
-      <li><a href="#reviews">Отзывы</a></li>
+
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Контакты</a></li>
     </ul>
@@ -584,7 +568,7 @@
           <ul>
             <li>Настройка роутеров (TP-Link, Keenetic, MikroTik, ASUS)</li>
             <li>Организация Mesh-системы для больших помещений</li>
-            <li>Настройка VPN-подключений (WireGuard, OpenVPN)</li>
+            <li>Настройка VPN-подключений </li>
             <li>Диагностика и устранение проблем с сетью</li>
             <li>Настройка гостевой сети, ограничение скорости</li>
           </ul>
@@ -600,8 +584,7 @@
           <p>Установлю операционную систему с сохранением ваших данных. Помогу с выбором: Windows для игр и совместимости или Linux для работы, серверов и безопасности.</p>
           <ul>
             <li>Чистая установка Windows 10/11 + все драйверы</li>
-            <li>Установка Linux (Ubuntu, Debian, Arch, Fedora, Mint)</li>
-            <li>Настройка двойной загрузки (Windows + Linux)</li>
+            <li>Установка Linux (Ubuntu, Debian, Arch)</li>
             <li>Перенос файлов и настроек со старой системы</li>
             <li>Настройка автоматических обновлений и бэкапов</li>
           </ul>
@@ -737,7 +720,7 @@
           Специализируюсь на настройке ПО, сетевого оборудования и ремонте ПК.
         </p>
         <p>
-          Работаю удалённо — через AnyDesk, TeamViewer, Telegram — так и с выездом к вам
+          Работаю удалённо — через AnyDesk, Rustdesk — так и с выездом к вам
           на дом или в офис. Для меня важен индивидуальный подход и чёткое понимание задачи.
         </p>
         <p>
@@ -796,7 +779,7 @@
           <li>Замена комплектующих</li>
           <li>Сборка ПК под задачи</li>
           <li>Чистка от пыли, замена термопасты</li>
-          <li>Ремонт после заливов</li>
+          <li>Чистка системы охлаждения, замена кулеров</li>
         </ul>
         <a href="#contact" class="btn btn-secondary">Заказать</a>
       </div>
@@ -806,39 +789,7 @@
 
 <hr class="section-divider">
 
-<section id="reviews">
-  <div class="container">
-    <div class="section-label reveal"><span class="line"></span>Отзывы</div>
-    <h2 class="section-title reveal">Что говорят клиенты</h2>
-    <p class="section-desc reveal">Реальные отзывы людей, которым я помог.</p>
-    <div class="reviews-grid">
-      <div class="review-card reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>«Илья оперативно приехал, за час настроил Wi-Fi по всей квартире. До этого мучился с роутером месяц. Всё чётко и понятно объяснил. Рекомендую!»</blockquote>
-        <div class="author">
-          <div class="avatar" style="background:linear-gradient(135deg,#7c3aed,#ec4899)">А</div>
-          <div><div class="name">Анна</div><div class="role">Настройка сети, выезд</div></div>
-        </div>
-      </div>
-      <div class="review-card reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>«Понадобилось срочно восстановить данные с ноутбука. Илья всё сделал удалённо за 40 минут. Очень доволен, спасибо! Буду обращаться ещё.»</blockquote>
-        <div class="author">
-          <div class="avatar" style="background:linear-gradient(135deg,#00f0ff,#7c3aed)">М</div>
-          <div><div class="name">Максим</div><div class="role">Восстановление данных</div></div>
-        </div>
-      </div>
-      <div class="review-card reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>«Собрал мне отличный игровой ПК в бюджет. Всё работает идеально, температуры отличные. Приятно иметь дело с профессионалом, который не пытается впарить лишнее.»</blockquote>
-        <div class="author">
-          <div class="avatar" style="background:linear-gradient(135deg,#10b981,#00f0ff)">Д</div>
-          <div><div class="name">Дмитрий</div><div class="role">Сборка игрового ПК</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <hr class="section-divider">
 
@@ -898,21 +849,21 @@
       <div class="contact-info reveal-left">
         <h3>Будем на связи</h3>
         <p>Отвечаю оперативно. Если я занят — обязательно перезвоню или напишу в ближайшее время.</p>
-        <a href="https://t.me/ilya_dev" class="contact-item" target="_blank">
+        <a href="https://t.me/ilya_kuzmintcev" class="contact-item" target="_blank">
           <div class="ci-icon tg">✈</div>
-          <div><div class="lbl">Telegram</div><div class="val">@ilya_dev</div></div>
+          <div><div class="lbl">Telegram</div><div class="val">@ilya_kuzmintcev</div></div>
         </a>
-        <a href="tel:+79001234567" class="contact-item">
+        <a href="tel:+79271605416" class="contact-item">
           <div class="ci-icon phone">📞</div>
-          <div><div class="lbl">Телефон</div><div class="val">+7 (900) 123-45-67</div></div>
+          <div><div class="lbl">Телефон</div><div class="val">+7 (927) 160-54-16</div></div>
         </a>
-        <a href="mailto:ilya@it-service.ru" class="contact-item">
+        <a href="mailto:free.zing1@yandex.ru" class="contact-item">
           <div class="ci-icon email">✉</div>
-          <div><div class="lbl">Email</div><div class="val">ilya@it-service.ru <small>— для коммерческих предложений</small></div></div>
+          <div><div class="lbl">Email</div><div class="val">free.zing1@yandex.ru <small>
         </a>
         <div class="contact-item" style="cursor:default">
           <div class="ci-icon map">📍</div>
-          <div><div class="lbl">Зона выезда</div><div class="val">Москва, МО, удалённо по всей РФ</div></div>
+          <div><div class="lbl">Зона выезда</div><div class="val">Саратов, Энгельс, удалённо по всей РФ</div></div>
         </div>
       </div>
       <form class="contact-form reveal-right" onsubmit="handleForm(event)">
@@ -953,7 +904,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Илья — <span class="accent">IT Specialist</span> · Работаю удалённо и с выездом · Сделано с <span class="heart">❤</span></p>
+    <p>© 2026 — <span class="accent">IT Specialist</span>
   </div>
 </footer>
 
@@ -1098,14 +1049,7 @@
       );
     }
 
-    // 2. Уведомление в Telegram через Worker (токен на сервере)
-    promises.push(
-      fetch('https://spring-unit-ca1b.deeman000.workers.dev', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      }).catch(() => {})
-    );
+
 
     Promise.allSettled(promises).then(() => {
       btn.textContent='✓ Отправлено! Скоро свяжусь';
