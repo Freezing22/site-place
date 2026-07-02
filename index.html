@@ -384,9 +384,6 @@
     .process-step h4{font-size:15px;font-weight:700;margin-bottom:6px}
     .process-step p{font-size:12.5px;color:var(--text-dim);line-height:1.6}
 
-    /* Reviews */
-
-
     /* FAQ */
     .faq-list{max-width:760px;margin:44px auto 0}
     .faq-item{
@@ -867,10 +864,6 @@
 
 <hr class="section-divider">
 
-
-
-<hr class="section-divider">
-
 <section id="process">
   <div class="container">
     <div class="section-label reveal"><span class="line"></span>Процесс</div>
@@ -1131,17 +1124,13 @@
     el.classList.toggle('expanded',!wasExpanded);
   }
 
-  // Form — отправка на почту (EmailJS) + уведомление в Telegram (через Worker)
+  // Form — отправка на почту через EmailJS
   function handleForm(e){
     e.preventDefault();
-
-    // Honeypot: если заполнено — спам, молча принимаем, но не отправляем
     if (e.target.website.value.trim()) return;
 
     const btn=e.target.querySelector('.btn-submit');
     const orig=btn.textContent;
-
-    // Санитизация
     const sanitize = s => s.trim().replace(/[<>&'"]/g, '');
     const data = {
       name: sanitize(e.target.name.value) || 'Аноним',
@@ -1152,29 +1141,22 @@
 
     btn.textContent='⏳ Отправка...'; btn.disabled=true;
 
-    const promises = [];
-
-    // 1. Email через EmailJS
-    if (typeof emailjs !== 'undefined') {
-      promises.push(
-        emailjs.send('service_xul6l7x','template_x2ppswh',{
-          from_name: data.name,
-          contact: data.contact,
-          service: data.service,
-          message: data.message,
-          to_email: 'free.zing1@yandex.ru',
-        }, 'DVDKXNsYEx2iPOyXM').catch(() => {})
-      );
-    }
-
-
-
-    Promise.allSettled(promises).then(() => {
+    emailjs.send('service_xul6l7x','template_x2ppswh',{
+      from_name: data.name, contact: data.contact,
+      service: data.service, message: data.message,
+      to_email: 'free.zing1@yandex.ru',
+    }, 'DVDKXNsYEx2iPOyXM')
+    .then(() => {
       btn.textContent='✓ Отправлено! Скоро свяжусь';
       btn.style.background='linear-gradient(135deg,#10b981,#059669)';
-      btn.disabled=false;
-      e.target.reset();
+      btn.disabled=false; e.target.reset();
       setTimeout(() => { btn.textContent=orig; btn.style.background=''; }, 4000);
+    })
+    .catch(() => {
+      btn.textContent='✗ Не прошло. Напишите в Telegram @ilya_kuzmintcev';
+      btn.style.background='linear-gradient(135deg,#ef4444,#dc2626)';
+      btn.disabled=false;
+      setTimeout(() => { btn.textContent=orig; btn.style.background=''; }, 8000);
     });
   }
 </script>
