@@ -1072,7 +1072,7 @@
     function draw(){
       ctx.clearRect(0,0,w,h);
 
-      // Hex-символы (неоновые)
+      // Hex-символы
       floats.forEach(f=>{
         f.x+=f.vx; f.y+=f.vy;
         if(f.x<0||f.x>w)f.vx*=-1;
