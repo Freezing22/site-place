@@ -645,7 +645,65 @@
     </div>
   </div>
 </section>
-  <section id="cert">
+
+<hr class="section-divider">
+
+<section id="about">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Обо мне</div>
+    <div class="about-grid">
+      <div class="about-code reveal-left">
+        <div class="line-bar"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+        <span class="cm">// profile.ts</span><br><br>
+        <span class="kw">interface</span> <span class="fn">ITSpecialist</span> {<br>
+        &nbsp;&nbsp;name: <span class="str">"Илья"</span>;<br>
+        &nbsp;&nbsp;age: <span class="num">27</span>;<br>
+        &nbsp;&nbsp;experience: <span class="num">6</span>+ <span class="cm"></span><br>
+        &nbsp;&nbsp;specialization: <span class="str">"IT-инфраструктура"</span>[];<br>
+        &nbsp;&nbsp;workFormat: <span class="str">"remote"</span> | <span class="str">"onsite"</span>;<br>
+        &nbsp;&nbsp;approach: <span class="str">"individual"</span>;<br>
+        }<br><br>
+        <span class="kw">const</span> ilya: <span class="fn">ITSpecialist</span> = {<br>
+        &nbsp;&nbsp;name: <span class="str">"Илья"</span>,<br>
+        &nbsp;&nbsp;experience: <span class="num">6</span>,<br>
+        &nbsp;&nbsp;specialization: [<span class="str">"PC"</span>, <span class="str">"Network"</span>, <span class="str">"OS"</span>, <span class="str">"Scripting"</span>],<br>
+        &nbsp;&nbsp;workFormat: <span class="str">"remote"</span> | <span class="str">"onsite"</span>,<br>
+        &nbsp;&nbsp;approach: <span class="str">"individual"</span>,<br>
+        };<br><br>
+        <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">`Готов помочь!`</span>);
+      </div>
+      <div class="about-text reveal-right">
+        <h2>Привет, я Илья</h2>
+        <p>
+          Более 6 лет помогаю людям решать проблемы с компьютерной техникой.
+          Специализируюсь на настройке ПО, сетевого оборудования и ремонте ПК.
+        </p>
+        <p>
+          Работаю удалённо — через AnyDesk, Rustdesk — так и с выездом к вам
+          на дом или в офис. Для меня важен индивидуальный подход и чёткое понимание задачи.
+        </p>
+        <p>
+          Постоянно изучаю новые технологии и следую трендам, чтобы предлагать актуальные
+          и эффективные решения.
+        </p>
+        <div class="tags">
+          <span>#Windows</span><span>#Linux</span><span>#Network</span>
+          <span>#Hardware</span><span>#Scripting</span><span>#Support</span>
+        </div>
+        <div class="skills-show">
+          <span>Windows 10/11</span><span>Linux (Ubuntu, Debian, Arch)</span>
+          <span>MikroTik</span><span>TP-Link</span><span>Keenetic</span>
+          <span>PowerShell</span><span>Bash</span><span>Python</span>
+          <span>Сборка ПК</span><span>VPN</span><span>AnyDesk</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="cert">
   <div class="container">
     <div class="section-label reveal"><span class="line"></span>Свидетельство</div>
     <h2 class="section-title reveal">Обучение и подтверждённые навыки</h2>
@@ -813,63 +871,6 @@
     </div>
   </div>
 </section>
-
-<hr class="section-divider">
-
-<section id="about">
-  <div class="container">
-    <div class="section-label reveal"><span class="line"></span>Обо мне</div>
-    <div class="about-grid">
-      <div class="about-code reveal-left">
-        <div class="line-bar"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-        <span class="cm">// profile.ts</span><br><br>
-        <span class="kw">interface</span> <span class="fn">ITSpecialist</span> {<br>
-        &nbsp;&nbsp;name: <span class="str">"Илья"</span>;<br>
-        &nbsp;&nbsp;age: <span class="num">27</span>;<br>
-        &nbsp;&nbsp;experience: <span class="num">6</span>+ <span class="cm"></span><br>
-        &nbsp;&nbsp;specialization: <span class="str">"IT-инфраструктура"</span>[];<br>
-        &nbsp;&nbsp;workFormat: <span class="str">"remote"</span> | <span class="str">"onsite"</span>;<br>
-        &nbsp;&nbsp;approach: <span class="str">"individual"</span>;<br>
-        }<br><br>
-        <span class="kw">const</span> ilya: <span class="fn">ITSpecialist</span> = {<br>
-        &nbsp;&nbsp;name: <span class="str">"Илья"</span>,<br>
-        &nbsp;&nbsp;experience: <span class="num">6</span>,<br>
-        &nbsp;&nbsp;specialization: [<span class="str">"PC"</span>, <span class="str">"Network"</span>, <span class="str">"OS"</span>, <span class="str">"Scripting"</span>],<br>
-        &nbsp;&nbsp;workFormat: <span class="str">"remote"</span> | <span class="str">"onsite"</span>,<br>
-        &nbsp;&nbsp;approach: <span class="str">"individual"</span>,<br>
-        };<br><br>
-        <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">`Готов помочь!`</span>);
-      </div>
-      <div class="about-text reveal-right">
-        <h2>Привет, я Илья</h2>
-        <p>
-          Более 6 лет помогаю людям решать проблемы с компьютерной техникой.
-          Специализируюсь на настройке ПО, сетевого оборудования и ремонте ПК.
-        </p>
-        <p>
-          Работаю удалённо — через AnyDesk, Rustdesk — так и с выездом к вам
-          на дом или в офис. Для меня важен индивидуальный подход и чёткое понимание задачи.
-        </p>
-        <p>
-          Постоянно изучаю новые технологии и следую трендам, чтобы предлагать актуальные
-          и эффективные решения.
-        </p>
-        <div class="tags">
-          <span>#Windows</span><span>#Linux</span><span>#Network</span>
-          <span>#Hardware</span><span>#Scripting</span><span>#Support</span>
-        </div>
-        <div class="skills-show">
-          <span>Windows 10/11</span><span>Linux (Ubuntu, Debian, Arch)</span>
-          <span>MikroTik</span><span>TP-Link</span><span>Keenetic</span>
-          <span>PowerShell</span><span>Bash</span><span>Python</span>
-          <span>Сборка ПК</span><span>VPN</span><span>AnyDesk</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider">
 
 <section id="pricing">
   <div class="container">
