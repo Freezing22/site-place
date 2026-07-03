@@ -248,6 +248,42 @@
 
     /* Sections */
     section{padding:100px 0;position:relative}
+    /* Cert */
+    .cert-wrap{margin-top:28px;display:flex;justify-content:center}
+    .cert-figure{margin:0;text-align:center;max-width:720px;width:100%}
+    .cert-frame{
+      position:relative;
+      border-radius:18px;
+      background:linear-gradient(135deg,rgba(0,240,255,.06),rgba(124,58,237,.06));
+      border:1px solid rgba(0,240,255,.14);
+      padding:14px;
+      overflow:hidden;
+      box-shadow:0 0 70px rgba(0,240,255,.06);
+    }
+    .cert-glow{
+      position:absolute;inset:-40px;
+      background:radial-gradient(circle at 20% 20%, rgba(0,240,255,.18), transparent 50%),
+                 radial-gradient(circle at 80% 10%, rgba(124,58,237,.18), transparent 45%),
+                 radial-gradient(circle at 20% 90%, rgba(245,158,11,.12), transparent 55%);
+      pointer-events:none;
+      filter:blur(18px);
+      opacity:.6;
+    }
+    .cert-img{
+      position:relative;
+      z-index:1;
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .cert-caption{
+      margin-top:14px;
+      color:var(--text-dim);
+      font-size:13.5px;
+      line-height:1.6;
+    }
     .section-label{
       display:inline-flex;align-items:center;gap:8px;
       font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:3px;
@@ -606,6 +642,22 @@
         </div>
         <div class="hero-photo-status"></div>
       </div>
+    </div>
+  </div>
+</section>
+  <section id="cert">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Свидетельство</div>
+    <h2 class="section-title reveal">Обучение и подтверждённые навыки</h2>
+    <p class="section-desc reveal">Постоянно изучаю новое, чтобы задачи выполнялись быстро, а самое главное качественно.</p>
+    <div class="cert-wrap reveal">
+      <figure class="cert-figure">
+        <div class="cert-frame">
+          <img src="certificate.jpg" alt="Свидетельство об обучении" class="cert-img">
+          <div class="cert-glow"></div>
+        </div>
+        <figcaption class="cert-caption">Свидетельство об обучении</figcaption>
+      </figure>
     </div>
   </div>
 </section>
