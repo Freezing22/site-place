@@ -124,15 +124,13 @@ h1,h2,h3,h4{margin:0;font-family:var(--sans);font-weight:400;color:var(--ink)}
 .pill-static{cursor:default}
 .pill-static:hover{background:rgba(0,0,0,0);border-color:var(--pill-line)}
 
-/* ── cards ── */
+/* ── cards ─ */
 .card{background:var(--canvas-card);border:1px solid var(--hairline);border-radius:var(--r-sm);padding:var(--xl);
   transition:border-color .3s var(--ease),background .3s var(--ease)}
 .card-soft{background:var(--canvas-soft)}
 .card-flip{background:var(--ink);border-color:var(--ink);color:var(--on-primary)}
 .card-flip h3,.card-flip .price{color:var(--on-primary)}
 .card-flip .muted{color:#5c6066}
-.card-flip li{color:#2a2d31}
-.card-flip li svg{color:#0a0a0a}
 
 /* ══════════ HEADER ══════════ */
 .progress{position:fixed;top:0;left:0;height:1px;width:0;background:var(--ink);z-index:1200;opacity:.9}
@@ -310,6 +308,11 @@ pre.code{margin:0;padding:var(--xl) var(--lg);overflow-x:auto;background:rgba(54
 .plan ul{display:grid;gap:10px;flex:1}
 .plan li{display:flex;gap:10px;font-size:14px;line-height:20px;color:var(--body)}
 .plan li svg{flex:0 0 auto;margin-top:4px;color:var(--sunset)}
+/* FIX: polarity-flipped card — тёмные цифры и текст на светлом фоне
+   (селекторы сильнее .plan-amt / .plan li, иначе белый текст на белом) */
+.card-flip .plan-amt{color:var(--on-primary)}
+.card-flip .plan li{color:#2a2d31}
+.card-flip .plan li svg{color:var(--on-primary)}
 .pnote{margin-top:var(--xl);display:flex;flex-wrap:wrap;gap:var(--lg);align-items:center;justify-content:space-between;
   padding:var(--lg) var(--xl);border:1px solid var(--hairline);border-radius:var(--r-sm);background:var(--canvas-soft)}
 .pnote p{font-size:14px;line-height:20px;color:var(--body)}
