@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/inter/index.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono/index.css" rel="stylesheet">
+<!-- ▼ ДОБАВЛЕНО: EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <style>
 /* ══════════════════════════════════════════════════════════════════
@@ -1282,6 +1284,15 @@ footer{border-top:1px solid var(--hairline);padding:var(--3xl) 0 var(--2xl);back
   'use strict';
   var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ── EmailJS: инициализация ── */
+  // Если CDN не загрузился (adblock/offline) — emailjs будет undefined,
+  // и обработчик формы покажет пользователю просьбу написать в Telegram/на почту.
+  try {
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init('DVDKXNsYEx2iPOyXM');
+    }
+  } catch(e) { console.warn('EmailJS init failed:', e); }
+
   /* ── прогресс + хедер + наверх ── */
   var header = document.getElementById('header');
   var progress = document.getElementById('progress');
@@ -1441,7 +1452,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--3xl) 0 var(--2xl);back
     toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 5000);
   }
 
-  /* ── форма ── */
+  /* ── форма + отправка через EmailJS ── */
   var form = document.getElementById('orderForm');
   var nameIn = document.getElementById('fName');
   var contactIn = document.getElementById('fContact');
@@ -1455,9 +1466,11 @@ footer{border-top:1px solid var(--hairline);padding:var(--3xl) 0 var(--2xl);back
       if(inp.classList.contains('bad')) mark(inp, inp.value.trim().length >= 2);
     });
   });
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    if(hpIn.value) return;
+    if(hpIn.value) return; // honeypot — молча игнорируем
+
     var okName = nameIn.value.trim().length >= 2;
     var okContact = contactIn.value.trim().length >= 5;
     mark(nameIn, okName); mark(contactIn, okContact);
@@ -1470,10 +1483,42 @@ footer{border-top:1px solid var(--hairline);padding:var(--3xl) 0 var(--2xl);back
       service: document.getElementById('fService').value || 'не указана',
       message: document.getElementById('fMsg').value.trim() || '—'
     };
-    // точка подключения бэкенда / Telegram Bot API
-    console.log('Заявка:', payload);
-    form.reset();
-    showToast('Заявка отправлена', 'Свяжусь с вами в течение часа. Спасибо, ' + payload.name + '!');
+
+    // Если EmailJS не загрузился (adblock/offline) — не врём пользователю
+    if (typeof emailjs === 'undefined') {
+      showToast('Сервис недоступен', 'Напишите в Telegram @ilya_kuzmintcev или на free.zing1@yandex.ru', false);
+      return;
+    }
+
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var origLabel = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправка…';
+
+    emailjs.send(
+      'service_xul6l7x',
+      'template_x2ppswh',
+      {
+        from_name: payload.name,
+        contact:   payload.contact,
+        service:   payload.service,
+        message:   payload.message,
+        to_email:  'free.zing1@yandex.ru'
+      },
+      'DVDKXNsYEx2iPOyXM'
+    )
+    .then(function(){
+      form.reset();
+      showToast('Заявка отправлена', 'Свяжусь с вами в течение часа. Спасибо, ' + payload.name + '!', true);
+    })
+    .catch(function(err){
+      console.error('EmailJS send error:', err);
+      showToast('Ошибка отправки', 'Не удалось отправить. Напишите в Telegram @ilya_kuzmintcev.', false);
+    })
+    .finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origLabel;
+    });
   });
 
   /* ── плавные якоря ── */
